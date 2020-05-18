@@ -1,0 +1,1178 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='ERP')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='ERP')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='ERP')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="xPROHANxCB_NKPU_PL_CC_CDS" xml:lang="de" sap:schema-version="1">
+			<EntityType Name="xPROHANxCB_NKPU_PL_CCType" sap:label="NKPL: Kostensammler" sap:content-version="1">
+				<Key><PropertyRef Name="KeyCheckType"/><PropertyRef Name="KeyCompanyCode"/><PropertyRef Name="KeyBusinessEntity"/><PropertyRef Name="KeySettlPer"/><PropertyRef Name="Guid"/></Key><Property Name="KeyCheckType" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase"
+					sap:text="to_CheckTypeValues/CheckType_Text" sap:label="Prüfungsart" sap:value-list="fixed-values"/><Property Name="KeyCompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Buchungskreis"/><Property Name="KeyBusinessEntity" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase"
+					sap:label="Wirtschaftseinheit" sap:quickinfo="Nummer der Wirtschaftseinheit"/><Property Name="KeySettlPer" Type="Edm.String" Nullable="false" MaxLength="16" sap:display-format="UpperCase"
+					sap:text="to_SettlPerValues/RangeText" sap:label="Abrechnungsperiode" sap:value-list="fixed-values"/><Property Name="Guid" Type="Edm.Guid" Nullable="false" sap:display-format="UpperCase" sap:label="GUID 16"
+					sap:quickinfo="GUID im 'CHAR' Format in Großschreibung"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="to_CompanyCode/CompanyCodeName"
+					sap:label="Buchungskreis" sap:value-list="standard"/><Property Name="BusinessEntity" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase"
+					sap:text="to_BusinessEntity/BusinessEntityDescription" sap:label="WE der AE" sap:quickinfo="Gültige Wirtschaftseinheit"
+					sap:value-list="standard"/><Property Name="ServiceChargeKey" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Nebenkostenschlüssel"
+					sap:value-list="standard"/><Property Name="SettlementUnit" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase"
+					sap:text="to_SettlementUnit/SettlementUnitDescription" sap:label="Abrechnungseinheit" sap:value-list="standard"/><Property Name="Status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="to_StatusValues/Status_Text"
+					sap:label="Status" sap:value-list="fixed-values"/><Property Name="StatusCriticality" Type="Edm.Byte"/><Property Name="Message" Type="Edm.String" MaxLength="100" sap:label="Meldungstext"/><NavigationProperty Name="to_BusinessEntity" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_7F344E48380FAA9A2218EB9E150AABE8"
+					FromRole="FromRole_assoc_7F344E48380FAA9A2218EB9E150AABE8" ToRole="ToRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"/><NavigationProperty Name="to_CheckTypeValues" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_4AFED6ABCDC488FBB3737837210B0F8B"
+					FromRole="FromRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B" ToRole="ToRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"/><NavigationProperty Name="to_CompanyCode" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_AED71401AC7E0183E42B44FA26D617EF"
+					FromRole="FromRole_assoc_AED71401AC7E0183E42B44FA26D617EF" ToRole="ToRole_assoc_AED71401AC7E0183E42B44FA26D617EF"/><NavigationProperty Name="to_SettlementUnit" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"
+					FromRole="FromRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D" ToRole="ToRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"/><NavigationProperty Name="to_SettlPerValues" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_DF12EFE2018DCB3B835A31EC872BA2C9"
+					FromRole="FromRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9" ToRole="ToRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"/><NavigationProperty Name="to_StatusValues" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"
+					FromRole="FromRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E" ToRole="ToRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"/></EntityType>
+			<EntityType Name="xPROHANxIB_BuildingType" sap:semantics="aggregate" sap:label="Building (vibdbu)" sap:content-version="1">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Buchungskreis"/><Property Name="BusinessEntity" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Wirtschaftseinheit" sap:quickinfo="Nummer der Wirtschaftseinheit"/><Property Name="Building" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:text="BuildingDescription" sap:label="Gebäude" sap:quickinfo="Nummer des Gebäudes"/><Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Datum" sap:quickinfo="Feld vom Typ DATS"/><Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Datum" sap:quickinfo="Feld vom Typ DATS"/><Property Name="ObjectNumber" Type="Edm.String" MaxLength="22" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Objektnummer"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="RE-Schlüssel" sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Immobilienschlüss." sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="BuildingDescription" Type="Edm.String" MaxLength="60" sap:label="Bez. Gebäude" sap:quickinfo="Bezeichnung des Gebäudes"/><Property Name="BuildingType" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Gebäudeart" sap:quickinfo="Art des Gebäudes"/><Property Name="BuildingCondition" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Gebäudezustand" sap:quickinfo="Allgemeiner Gebäudezustand"/><Property Name="MainUsageType" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Überw.Nutzart" sap:quickinfo="Überwiegende Nutzungsart"/><Property Name="MunicipalityKey" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Gemeindeschlüssel"/><Property Name="HistoricalSites" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Denkmalschutz"/><Property Name="HeritableBuildingRight" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Erbbaurecht" sap:quickinfo="Kennzeichen Erbbaurecht"/><Property Name="ListOfRentsUsage" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Msp. verwendet" sap:quickinfo="Mietspiegel wird verwendet"/><Property Name="ListOfRentsLocationClass" Type="Edm.String" MaxLength="6" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Lageklasse"/><Property Name="ConstructionDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Baujahr"/><Property Name="ConstructionYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Construction Year"/><Property Name="ModernizationDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Modernisierung" sap:quickinfo="Jahr der Modernisierung"/><Property Name="ReconstructionDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Wiederaufbau" sap:quickinfo="Jahr Wiederaufbau"/><Property Name="PlanningInquiryDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Bauvoranfrage" sap:quickinfo="Datum Bauvoranfrage"/><Property Name="BuildingPermitDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Baugenehmigung"/><Property Name="ConstructionStartDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Baubeginn" sap:quickinfo="Datum Baubeginn"/><Property Name="FinalInspectionDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Schlussabnahme"/><Property Name="CompletionDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Fertigstellung"/><Property Name="DemolitionDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Abbruchjahr"/><Property Name="ReadyForOccupancy" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Bezugsfertigkeit"/><Property Name="PlannedSaleDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Verkauf geplant" sap:quickinfo="Geplanter Verkauf"/><Property Name="SaleDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Verkauf"
+					sap:quickinfo="Verkaufsdatum"/><Property Name="PublicFundingFrom" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Öffentl. Förd. von" sap:quickinfo="Öffentliche Förderung von"/><Property Name="PublicFundingTo" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Öffentl. Förd. bis" sap:quickinfo="Öffentliche Förderung bis"/><Property Name="TransferUsageDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Übergang Nutz/Lasten" sap:quickinfo="Übergang Nutzung / Lasten"/><Property Name="EndofUsageDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Nutzungsende"/><Property Name="PriorNoticeDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Vorbescheid" sap:quickinfo="Datum Vorbescheid"/><Property Name="InsuranceType" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Art VersicherWert" sap:quickinfo="Art des Versicherungswertes"/><Property Name="AssessedValueBaseYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Jahr Einheitswert" sap:quickinfo="Basisjahr des Einheitswertes"/><Property Name="ResponsiblePerson" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Verantwortlicher"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Berechtigungsgruppe"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Erfasser"/><Property Name="CreationEntrySource" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Ersterfassungsquelle" sap:quickinfo="Quelle der Ersterfassung"/><Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Ersterfassung" sap:quickinfo="Zuerst erfasst am"/><Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:label="Ersterfassung Zeit"
+					sap:quickinfo="Uhrzeit der Ersterfassung"/><Property Name="LastChangeByUser" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Zuletzt geändert von" sap:quickinfo="Mitarbeiterkennung"/><Property Name="LastChangeSource" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Herkunft Bearbeitung" sap:quickinfo="Herkunft der Bearbeitung"/><Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Zul. bearbeitet am" sap:quickinfo="Zuletzt bearbeitet am"/><Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:label="Zul. bearbeitet um"
+					sap:quickinfo="Zuletzt bearbeitet um"/><Property Name="BuildingValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:label="Bauwert"
+					sap:filterable="false"/><Property Name="CurrentBuildingValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:label="Bauwert Aktuell"
+					sap:quickinfo="Aktueller Bauwert" sap:filterable="false"/><Property Name="StandardValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:label="Einheitswert"
+					sap:quickinfo="Einheitswert des Gebäudes" sap:filterable="false"/><Property Name="InsuranceValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:label="Versicherungswert"
+					sap:quickinfo="Betrag des Versicherungswertes" sap:filterable="false"/><Property Name="NumberOfFloors" Type="Edm.Decimal" Precision="4" Scale="1" sap:aggregation-role="measure" sap:label="Anzahl Geschosse"
+					sap:quickinfo="Anzahl der Geschosse" sap:filterable="false"/><Property Name="NumberofBasements" Type="Edm.Decimal" Precision="2" Scale="0" sap:aggregation-role="measure" sap:label="Untergeschosse"
+					sap:quickinfo="Anzahl Untergeschosse" sap:filterable="false"/><Property Name="UppermostFloor" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Oberstes Geschoss" sap:quickinfo="Oberstes Geschoss eines Gebäudes"/><Property Name="ElevatorToFloor" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Lift bis Geschoss" sap:quickinfo="Lift bis Geschoss im Gebäude"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="Währung"
+					sap:quickinfo="Währungsschlüssel" sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="xPROHANxIB_BusinessEntityType" sap:label="Business Entity (vibdbe)" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/><PropertyRef Name="BusinessEntity"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="to_CompanyCode/CompanyCodeName" sap:label="Buchungskreis" sap:value-list="standard"/><Property Name="BusinessEntity" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase"
+					sap:text="BusinessEntityDescription" sap:label="Wirtschaftseinheit" sap:quickinfo="Nummer der Wirtschaftseinheit"/><Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum"
+					sap:quickinfo="Feld vom Typ DATS"/><Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum"
+					sap:quickinfo="Feld vom Typ DATS"/><Property Name="ObjectNumber" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Objektnummer"
+					sap:value-list="standard"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="RE-Schlüssel"
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Immobilienschlüss."
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="BusinessEntityDescription" Type="Edm.String" MaxLength="60" sap:label="Bezeichnung der WE"
+					sap:quickinfo="Bezeichnung der Wirtschaftseinheit"/><Property Name="MaintenanceDistrict" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative"
+					sap:text="to_MaintenanceDistrict/MaintenanceDistrictDescription" sap:label="Instandhaltungsbez" sap:quickinfo="Instandhaltungsbezirk"
+					sap:value-list="standard"/><Property Name="TransportConnection" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase"
+					sap:text="to_TransportConnection/TransportConnection_Text" sap:label="Verkehrsanbindung" sap:quickinfo="Verkehrsanbindung der WE"
+					sap:value-list="standard"/><Property Name="RegionalLocation" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase"
+					sap:text="to_RegionalLocation/RegionalLocationDescription" sap:label="Standort" sap:value-list="standard"/><Property Name="LocationNumber" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative"
+					sap:text="to_LocationNumber/LocationNumberDescription" sap:label="Lage" sap:quickinfo="Nummer Lage der WE" sap:value-list="standard"/><Property Name="DistrictLocation" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative"
+					sap:text="to_DistrictLocation/DistrictLocation_Text" sap:label="Ortslage" sap:quickinfo="Kennzeichen Ortslage des Objektes"
+					sap:value-list="standard"/><Property Name="TenancyLaw" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:text="to_TenancyLaw/TenancyLaw_Text"
+					sap:label="Mietrecht" sap:value-list="standard"/><Property Name="ListOfRents" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:text="to_ListOfRents/ListOfRents_Text"
+					sap:label="Mietspiegel" sap:value-list="standard"/><Property Name="ResponsiblePerson" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Verantwortlicher"/><Property Name="AuthorizedGroup" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Berechtigungsgruppe"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Erfasser"
+					sap:value-list="standard"/><Property Name="CreationEntrySource" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ersterfassungsquelle"
+					sap:quickinfo="Quelle der Ersterfassung"/><Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Ersterfassung"
+					sap:quickinfo="Zuerst erfasst am"/><Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Ersterfassung Zeit" sap:quickinfo="Uhrzeit der Ersterfassung"/><Property Name="LastChangeByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Zuletzt geändert von"
+					sap:quickinfo="Mitarbeiterkennung" sap:value-list="standard"/><Property Name="LastChangeSource" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Herkunft Bearbeitung"
+					sap:quickinfo="Herkunft der Bearbeitung"/><Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Zul. bearbeitet am"
+					sap:quickinfo="Zuletzt bearbeitet am"/><Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:label="Zul. bearbeitet um" sap:quickinfo="Zuletzt bearbeitet um"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:text="to_Currency/Currency_Text" sap:label="Währung"
+					sap:quickinfo="Währungsschlüssel" sap:value-list="standard" sap:semantics="currency-code"/><Property Name="AreaUnit" Type="Edm.String" MaxLength="3" sap:label="Flächeneinheit" sap:semantics="unit-of-measure"/><Property Name="CubicVolume" Type="Edm.String" MaxLength="3" sap:label="Raumeinheit" sap:quickinfo="Einheit für Rauminhalt"
+					sap:semantics="unit-of-measure"/><Property Name="Length" Type="Edm.String" MaxLength="3" sap:label="Längeneinheit" sap:semantics="unit-of-measure"/><NavigationProperty Name="to_ChangedByUser" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_D4A4A5995C08D8D736D6E0D53702A642"
+					FromRole="FromRole_assoc_D4A4A5995C08D8D736D6E0D53702A642" ToRole="ToRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"/><NavigationProperty Name="to_CompanyCode" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"
+					FromRole="FromRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8" ToRole="ToRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"/><NavigationProperty Name="to_CreatedByUser" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9B12134DCA35C7B92905F1389B87D070"
+					FromRole="FromRole_assoc_9B12134DCA35C7B92905F1389B87D070" ToRole="ToRole_assoc_9B12134DCA35C7B92905F1389B87D070"/><NavigationProperty Name="to_Currency" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_88A93473615D4728903766B55BC1C938"
+					FromRole="FromRole_assoc_88A93473615D4728903766B55BC1C938" ToRole="ToRole_assoc_88A93473615D4728903766B55BC1C938"/><NavigationProperty Name="to_DistrictLocation" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9E339CA4B35ACBB549730A79E61CF00B"
+					FromRole="FromRole_assoc_9E339CA4B35ACBB549730A79E61CF00B" ToRole="ToRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"/><NavigationProperty Name="to_ListOfRents" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_4187EED25E3BD22C530CD4125A42FEFE"
+					FromRole="FromRole_assoc_4187EED25E3BD22C530CD4125A42FEFE" ToRole="ToRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"/><NavigationProperty Name="to_LocationNumber" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_A82B8A43216ED709BB12B7C345C16CDE"
+					FromRole="FromRole_assoc_A82B8A43216ED709BB12B7C345C16CDE" ToRole="ToRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"/><NavigationProperty Name="to_MaintenanceDistrict" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_918FE721646A483E73601B7C2AF61427"
+					FromRole="FromRole_assoc_918FE721646A483E73601B7C2AF61427" ToRole="ToRole_assoc_918FE721646A483E73601B7C2AF61427"/><NavigationProperty Name="to_ObjectNumber" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9A1BE9B7B04712D0BCBE61325E7F332F"
+					FromRole="FromRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F" ToRole="ToRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"/><NavigationProperty Name="to_RegionalLocation" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_C650C427538073D7A77AFAC309A0EB8B"
+					FromRole="FromRole_assoc_C650C427538073D7A77AFAC309A0EB8B" ToRole="ToRole_assoc_C650C427538073D7A77AFAC309A0EB8B"/><NavigationProperty Name="to_TenancyLaw" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_B52E6401D48D3CE4349144BF16F63208"
+					FromRole="FromRole_assoc_B52E6401D48D3CE4349144BF16F63208" ToRole="ToRole_assoc_B52E6401D48D3CE4349144BF16F63208"/><NavigationProperty Name="to_TransportConnection" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_13778D087BDFCF4D5B21B20826A87E8B"
+					FromRole="FromRole_assoc_13778D087BDFCF4D5B21B20826A87E8B" ToRole="ToRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"/></EntityType>
+			<EntityType Name="xPROHANxIB_DistrictSiteType" sap:label="District Location (tiv45)" sap:content-version="1">
+				<Key><PropertyRef Name="DistrictLocation"/></Key><Property Name="DistrictLocation" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="NonNegative"
+					sap:text="DistrictLocation_Text" sap:label="Ortslage" sap:quickinfo="Kennzeichen Ortslage des Objektes"/><Property Name="DistrictLocation_Text" Type="Edm.String" MaxLength="50" sap:label="Objektlage" sap:quickinfo="Ortslage"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="xPROHANxIB_ListOfRentsType" sap:label="ListOfRents (tivajrlra)" sap:content-version="1">
+				<Key><PropertyRef Name="ListOfRents"/></Key><Property Name="ListOfRents" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:text="ListOfRents_Text"
+					sap:label="Mietspiegel"/><Property Name="ListOfRents_Text" Type="Edm.String" MaxLength="60" sap:label="Mietspiegel" sap:quickinfo="Bezeichnung des Mietspiegels"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="xPROHANxIB_LocationNumberType" sap:label="Location Number (tiv10)" sap:content-version="1">
+				<Key><PropertyRef Name="LocationNumber"/></Key><Property Name="LocationNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative"
+					sap:text="LocationNumberDescription" sap:label="Lage" sap:quickinfo="Nummer Lage der WE"/><Property Name="LocationNumberName" Type="Edm.String" MaxLength="15" sap:label="Lage Wirtschaftseinh"
+					sap:quickinfo="Kurzbezeichnung der Lage der Wirtschaftseinheit"/><Property Name="LocationNumberDescription" Type="Edm.String" MaxLength="30" sap:label="Lage Wirtschaftseinh"
+					sap:quickinfo="Bezeichnung der Lage der Wirtschaftseinheit"/></EntityType>
+			<EntityType Name="xPROHANxIB_MaintenanceDistrictType" sap:label="Maintenance District (tiv16)" sap:content-version="1">
+				<Key><PropertyRef Name="MaintenanceDistrict"/></Key><Property Name="MaintenanceDistrict" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative"
+					sap:text="MaintenanceDistrictDescription" sap:label="Instandhaltungsbezirk"/><Property Name="MaintenanceDistrictName" Type="Edm.String" MaxLength="15" sap:label="InstandhaltBezirk"
+					sap:quickinfo="Kurzbezeichnung des Instandhaltungsbezirks"/><Property Name="MaintenanceDistrictDescription" Type="Edm.String" MaxLength="30" sap:label="InstandhaltBezirk"
+					sap:quickinfo="Bezeichnung des Instandhaltungsbezirks"/></EntityType>
+			<EntityType Name="xPROHANxIB_NKPU_SettlPer_VHType" sap:label="Abrechnungsperiode" sap:content-version="1">
+				<Key><PropertyRef Name="SettlPer"/></Key><Property Name="SettlPer" Type="Edm.String" Nullable="false" MaxLength="16" sap:display-format="UpperCase" sap:text="RangeText"
+					sap:label="Abrechnungsperiode"/><Property Name="ValidFromText" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase"/><Property Name="ValidToText" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase"/><Property Name="RangeText" Type="Edm.String" MaxLength="23" sap:display-format="UpperCase"/></EntityType>
+			<EntityType Name="xPROHANxIB_ObjectNumberType" sap:label="Object Number (vicaintreno)" sap:content-version="1">
+				<Key><PropertyRef Name="ObjectNumber"/></Key><Property Name="ObjectNumber" Type="Edm.String" Nullable="false" MaxLength="22" sap:display-format="UpperCase" sap:label="Objektnummer"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="RE-Schlüssel"
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Immobilienschlüss."
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="to_CompanyCode/CompanyCodeName"
+					sap:label="Buchungskreis" sap:value-list="standard"/><Property Name="BusinessEntity" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase"
+					sap:text="to_BusinessEntity/BusinessEntityDescription" sap:label="Wirtschaftseinheit" sap:quickinfo="Nummer der Wirtschaftseinheit"
+					sap:value-list="standard"/><Property Name="Property" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:text="to_Property/PropertyDescription"
+					sap:label="Grundstück" sap:quickinfo="Nummer des Grundstücks" sap:value-list="standard"/><Property Name="Building" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:text="to_Building/BuildingDescription"
+					sap:label="Gebäude" sap:quickinfo="Nummer des Gebäudes" sap:value-list="standard"/><Property Name="RentalObject" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase"
+					sap:text="to_RentalObject/RentalObjectDescription" sap:label="Mietobjekt" sap:quickinfo="Nummer des Mietobjekts" sap:value-list="standard"/><Property Name="RentalContract" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase"
+					sap:text="to_RentalContract/ContractDescription" sap:label="Vertrag" sap:quickinfo="Nummer des Vertrags" sap:value-list="standard"/><Property Name="ArchitecturalObject" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Identifikation AO"
+					sap:quickinfo="Identifikation des Arch. Objekts"/><Property Name="ParticipationGroup" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Teilnahmegruppe"/><Property Name="ServiceChargeKey" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Nebenkostenschlüssel"/><Property Name="SettlementUnit" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Abrechnungseinheit"/><Property Name="ComparativeGroup" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="Vergleichsbestand"
+					sap:quickinfo="Nummer des Vergleichsbestands"/><Property Name="ObjectType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Objektart"/><NavigationProperty Name="to_Building" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9BFD7337FDF28A84856C29D2B6B67F0B"
+					FromRole="FromRole_assoc_9BFD7337FDF28A84856C29D2B6B67F0B" ToRole="ToRole_assoc_9BFD7337FDF28A84856C29D2B6B67F0B"/><NavigationProperty Name="to_BusinessEntity" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_8A4D747053CCC1BCD76FFA149F3DB303"
+					FromRole="FromRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303" ToRole="ToRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"/><NavigationProperty Name="to_CompanyCode" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_8A4A33BBCB367A063A657054DD84F2E2"
+					FromRole="FromRole_assoc_8A4A33BBCB367A063A657054DD84F2E2" ToRole="ToRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"/><NavigationProperty Name="to_Property" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_81C62AB2148DE4E54C80D8F48DEA7C15"
+					FromRole="FromRole_assoc_81C62AB2148DE4E54C80D8F48DEA7C15" ToRole="ToRole_assoc_81C62AB2148DE4E54C80D8F48DEA7C15"/><NavigationProperty Name="to_RentalContract" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9254906D346A011BEF560CBE13CEE7FF"
+					FromRole="FromRole_assoc_9254906D346A011BEF560CBE13CEE7FF" ToRole="ToRole_assoc_9254906D346A011BEF560CBE13CEE7FF"/><NavigationProperty Name="to_RentalObject" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_1ACA6AD4B1634C477B6AA0FAAB581590"
+					FromRole="FromRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590" ToRole="ToRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"/></EntityType>
+			<EntityType Name="xPROHANxIB_PropertyType" sap:semantics="aggregate" sap:label="Property (vibdpr)" sap:content-version="1">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Buchungskreis"/><Property Name="BusinessEntity" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Wirtschaftseinheit" sap:quickinfo="Nummer der Wirtschaftseinheit"/><Property Name="Property" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:text="PropertyDescription" sap:label="Grundstück" sap:quickinfo="Nummer des Grundstücks"/><Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Datum" sap:quickinfo="Feld vom Typ DATS"/><Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Datum" sap:quickinfo="Feld vom Typ DATS"/><Property Name="ObjectNumber" Type="Edm.String" MaxLength="22" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Objektnummer"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="RE-Schlüssel" sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Immobilienschlüss." sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="PropertyDescription" Type="Edm.String" MaxLength="60" sap:label="Bez. Grundstück"
+					sap:quickinfo="Bezeichnung des Grundstücks"/><Property Name="PropertyType" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Grundstückart" sap:quickinfo="Grundstücksart"/><Property Name="MainUsageType" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Überw.Nutzart" sap:quickinfo="Überwiegende Nutzungsart"/><Property Name="PropertyLocationQuality" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Lagequalität" sap:quickinfo="Grundstück: Lagequalität"/><Property Name="LandMapUsageType" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Nutz. Flächenplan" sap:quickinfo="Nutzungsart Grundstück laut Flächennutzungsplan"/><Property Name="DevPlanUsageType" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Nutz.Bebau.Plan" sap:quickinfo="Nutzungsart laut Bebauungsplan"/><Property Name="DevelopmentPlan" Type="Edm.String" MaxLength="30" sap:aggregation-role="dimension" sap:label="Bebauungsplan"/><Property Name="PropertyGroundType" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="NonNegative"
+					sap:label="Geländeform" sap:quickinfo="Geländeform des Grundstücks"/><Property Name="CurrentUsage" Type="Edm.String" MaxLength="30" sap:aggregation-role="dimension" sap:label="Aktuelle Nutzung"
+					sap:quickinfo="Aktuelle Nutzung des Grundstückes"/><Property Name="MunicipalityKey" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Gemeindeschlüssel"/><Property Name="LandValueDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Datum Bodenwert"/><Property Name="DevelopmentPlanDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Plan vom" sap:quickinfo="Datum Bebauungsplan"/><Property Name="PlannedSaleDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Verkauf geplant" sap:quickinfo="Geplanter Verkauf"/><Property Name="SaleDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Verkauf"
+					sap:quickinfo="Verkaufsdatum"/><Property Name="TransferUsageDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Übergang Nutz/Lasten" sap:quickinfo="Übergang Nutzung / Lasten"/><Property Name="ResponsiblePerson" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Verantwortlicher"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Berechtigungsgruppe"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Erfasser"/><Property Name="CreationEntrySource" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Ersterfassungsquelle" sap:quickinfo="Quelle der Ersterfassung"/><Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Ersterfassung" sap:quickinfo="Zuerst erfasst am"/><Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:label="Ersterfassung Zeit"
+					sap:quickinfo="Uhrzeit der Ersterfassung"/><Property Name="LastChangeByUser" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Zuletzt geändert von" sap:quickinfo="Mitarbeiterkennung"/><Property Name="LastChangeSource" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Herkunft Bearbeitung" sap:quickinfo="Herkunft der Bearbeitung"/><Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date"
+					sap:label="Zul. bearbeitet am" sap:quickinfo="Zuletzt bearbeitet am"/><Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:label="Zul. bearbeitet um"
+					sap:quickinfo="Zuletzt bearbeitet um"/><Property Name="MarketValue" Type="Edm.Decimal" Precision="14" Scale="3" sap:aggregation-role="measure" sap:unit="Currency"
+					sap:label="Verkehrswert" sap:filterable="false"/><Property Name="PurchasePrice" Type="Edm.Decimal" Precision="14" Scale="3" sap:aggregation-role="measure" sap:unit="Currency"
+					sap:label="Kaufpreis" sap:filterable="false"/><Property Name="LandReferenceValue" Type="Edm.Decimal" Precision="14" Scale="3" sap:aggregation-role="measure" sap:unit="Currency"
+					sap:label="Bodenrichtwert" sap:quickinfo="Bodenrichtwert zur Verkehrswertermittlung" sap:filterable="false"/><Property Name="LandValue" Type="Edm.Decimal" Precision="14" Scale="3" sap:aggregation-role="measure" sap:unit="Currency"
+					sap:label="Bodenwert" sap:quickinfo="Bodenwert zur Verkehrswertermittlung" sap:filterable="false"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="Währung"
+					sap:quickinfo="Währungsschlüssel" sap:semantics="currency-code"/><Property Name="LengthUnit" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:label="Längeneinheit"
+					sap:semantics="unit-of-measure"/></EntityType>
+			<EntityType Name="xPROHANxIB_RegionalLocationType" sap:label="Regional Location (tiv35)" sap:content-version="1">
+				<Key><PropertyRef Name="RegionalLocation"/></Key><Property Name="RegionalLocation" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:text="RegionalLocationDescription" sap:label="Standort"/><Property Name="RegionalLocationDescription" Type="Edm.String" MaxLength="35" sap:label="Standort" sap:quickinfo="Lage: Standort"/></EntityType>
+			<EntityType Name="xPROHANxIB_RentalContractType" sap:label="Rental Contract (vicncn)" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/><PropertyRef Name="RentalContract"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Buchungskreis"/><Property Name="RentalContract" Type="Edm.String" Nullable="false" MaxLength="13" sap:display-format="UpperCase"
+					sap:text="ContractDescription" sap:label="Vertrag" sap:quickinfo="Nummer des Vertrags"/><Property Name="ContractStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum"
+					sap:quickinfo="Feld vom Typ DATS"/><Property Name="ContractEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum"
+					sap:quickinfo="Feld vom Typ DATS"/><Property Name="ObjectNumber" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Objektnummer"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="RE-Schlüssel"
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Immobilienschlüss."
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="ContractDescription" Type="Edm.String" MaxLength="80" sap:label="Vertragsbezeichnung"/><Property Name="ContractType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Vertragsart"/><Property Name="recnbukrscollect" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Bukrs Hauptvertrag"
+					sap:quickinfo="Buchungskreis des Hauptvertrages"/><Property Name="recnnrcollect" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="Hauptvertrag"
+					sap:quickinfo="Nummer Hauptvertrag Immobilien"/><Property Name="ContractConclusionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Vertragsabschluss"
+					sap:quickinfo="Datum Vertragsabschluss"/><Property Name="FirstContractEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Erstes Vertragsende"
+					sap:quickinfo="Datum erstes Vertragsende"/><Property Name="ContractNoticeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Kündigung zum"
+					sap:quickinfo="Kündigung des Vertrages zum ..."/><Property Name="NoticeReceiptDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Eingangsdatum"
+					sap:quickinfo="Eingangsdatum der Kündigung"/><Property Name="NoticeActivationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Künd. aktiviert am"
+					sap:quickinfo="Kündigung: Datum der Aktivierung"/><Property Name="ReasonForNotice" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Kündigungsgrund"/><Property Name="ResponsiblePerson" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Verantwortlicher"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Berechtigungsgruppe"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Erfasser"/><Property Name="CreationEntrySource" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ersterfassungsquelle"
+					sap:quickinfo="Quelle der Ersterfassung"/><Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Ersterfassung"
+					sap:quickinfo="Zuerst erfasst am"/><Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Ersterfassung Zeit" sap:quickinfo="Uhrzeit der Ersterfassung"/><Property Name="LastChangeByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Zuletzt geändert von"
+					sap:quickinfo="Mitarbeiterkennung"/><Property Name="LastChangeSource" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Herkunft Bearbeitung"
+					sap:quickinfo="Herkunft der Bearbeitung"/><Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Zul. bearbeitet am"
+					sap:quickinfo="Zuletzt bearbeitet am"/><Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:label="Zul. bearbeitet um" sap:quickinfo="Zuletzt bearbeitet um"/></EntityType>
+			<EntityType Name="xPROHANxIB_RentalObjectType" sap:label="RentalObject (vibdro)" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/><PropertyRef Name="BusinessEntity"/><PropertyRef Name="RentalObject"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Buchungskreis"/><Property Name="BusinessEntity" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase"
+					sap:label="Wirtschaftseinheit" sap:quickinfo="Nummer der Wirtschaftseinheit"/><Property Name="RentalObject" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase"
+					sap:text="RentalObjectDescription" sap:label="Mietobjekt" sap:quickinfo="Nummer des Mietobjekts"/><Property Name="Property" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Grundstück"
+					sap:quickinfo="Nummer des Grundstücks"/><Property Name="Building" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Gebäude"
+					sap:quickinfo="Nummer des Gebäudes"/><Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum"
+					sap:quickinfo="Feld vom Typ DATS"/><Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum"
+					sap:quickinfo="Feld vom Typ DATS"/><Property Name="ObjectNumber" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Objektnummer"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Immobilienschlüss."
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="RE-Schlüssel"
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="RentalObjectDescription" Type="Edm.String" MaxLength="60" sap:label="Bez. Mietobjekt"
+					sap:quickinfo="Bezeichnung des Mietobjekts"/><Property Name="RentalObjectType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Typ des Mietobjekts"/><Property Name="UsageType" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Nutzungsart"
+					sap:quickinfo="Nutzungsart des Mietobjektes"/><Property Name="Floor" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Geschoss"/><Property Name="BuildingFloors" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Geschoss Bis"
+					sap:quickinfo="Bei MEs mit mehreren Geschossen: Oberstes Geschoss der ME"/><Property Name="PartOfBuilding" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Gebäudeteil"/><Property Name="LocationOnFloor" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Lage im Geschoss"/><Property Name="NoParkingSpace" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Standplatznummer"
+					sap:quickinfo="Nummer der Garage / des Stellplatzes"/><Property Name="ListOfRents" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Mietspiegel"/><Property Name="ListOfRentsUsage" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Msp. verwendet"
+					sap:quickinfo="Mietspiegel wird verwendet"/><Property Name="ListOfRentsLocationClass" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Lageklasse"/><Property Name="FixturesAndFittingsClass" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Ausstattungsklasse"/><Property Name="InitialUsageDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Erstmalige Nutzung"
+					sap:quickinfo="Datum der erstmaligen Nutzung"/><Property Name="SubsequentRentalDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum: Weiterverm."
+					sap:quickinfo="Datum: Weitervermietung"/><Property Name="CashFlowStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Finanzstrom ab"
+					sap:quickinfo="Finanzstromgenerierung ab"/><Property Name="CashFlowsArchivedDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="FS archiviert bis"
+					sap:quickinfo="Datum, bis zu dem der Finanzstrom archiviert ist"/><Property Name="CashFlowsLocked" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Finanzstrom fest bis"
+					sap:quickinfo="Datum, bis zu dem der Finanzstrom gesperrt ist"/><Property Name="FirstPostingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Erste Buchung ab"/><Property Name="ReservedFrom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum: Reserv. ab"
+					sap:quickinfo="Datum: Reserviert ab"/><Property Name="ReservedTo" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Datum: Reserv. bis"
+					sap:quickinfo="Datum: Reserviert bis"/><Property Name="ConstructionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Baujahr"/><Property Name="ConstructionYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Baujahr"/><Property Name="ModernizationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Mod.-Datum"
+					sap:quickinfo="Datum Wiederaufbau/Umfassende Modernisierung"/><Property Name="DemolitionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Abbruchjahr"/><Property Name="ResponsiblePerson" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Verantwortlicher"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Berechtigungsgruppe"/><Property Name="CreationEntryUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Erfasser"/><Property Name="CreationEntrySource" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ersterfassungsquelle"
+					sap:quickinfo="Quelle der Ersterfassung"/><Property Name="CreationEntryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Ersterfassung"
+					sap:quickinfo="Zuerst erfasst am"/><Property Name="CreationEntryTime" Type="Edm.Time" Precision="0" sap:label="Ersterfassung Zeit" sap:quickinfo="Uhrzeit der Ersterfassung"/><Property Name="LastChangeUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Zuletzt geändert von"
+					sap:quickinfo="Mitarbeiterkennung"/><Property Name="LastChangeSource" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Herkunft Bearbeitung"
+					sap:quickinfo="Herkunft der Bearbeitung"/><Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Zul. bearbeitet am"
+					sap:quickinfo="Zuletzt bearbeitet am"/><Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:label="Zul. bearbeitet um" sap:quickinfo="Zuletzt bearbeitet um"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:label="Währung" sap:quickinfo="Währungsschlüssel"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="xPROHANxIB_ServiceChargeKeyType" sap:label="Service Charge Key (tiv05)" sap:content-version="1">
+				<Key><PropertyRef Name="ServiceChargeKey"/></Key><Property Name="ServiceChargeKey" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="ServiceChargeKeyDescription" sap:label="Nebenkostenschlüssel"/><Property Name="Language" Type="Edm.String" MaxLength="2" sap:text="to_Language/Language_Text" sap:label="Sprachenschlüssel"
+					sap:value-list="standard"/><Property Name="ServiceChargeKeyDescription" Type="Edm.String" MaxLength="30" sap:label="Beschreibung"
+					sap:quickinfo="Bezeichnung Nebenkostenschlüssel"/><NavigationProperty Name="to_Language" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"
+					FromRole="FromRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E" ToRole="ToRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"/></EntityType>
+			<EntityType Name="xPROHANxIB_SettlementUnitType" sap:label="Settlement Unit (viscsu)" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/><PropertyRef Name="BusinessEntity"/><PropertyRef Name="SettlementUnit"/><PropertyRef Name="ServiceChargeKey"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="to_CompanyCode/CompanyCodeName" sap:label="Buchungskreis" sap:value-list="standard"/><Property Name="BusinessEntity" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase"
+					sap:text="to_BusinessEntity/BusinessEntityDescription" sap:label="WE der AE" sap:quickinfo="Gültige Wirtschaftseinheit"
+					sap:value-list="standard"/><Property Name="SettlementUnit" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="UpperCase"
+					sap:text="SettlementUnitDescription" sap:label="Abrechnungseinheit"/><Property Name="ServiceChargeKey" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="to_ServiceChargeKey/ServiceChargeKeyDescription" sap:label="Nebenkostenschlüssel" sap:value-list="standard"/><Property Name="validfrom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Gültig ab"
+					sap:quickinfo="Gültig-ab-Datum einer Abrechnungseinheit"/><Property Name="validto" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Gültig bis"
+					sap:quickinfo="Ende der Gültigkeit einer Abrechnungseinheit"/><Property Name="ObjectNumber" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Objektnummer"/><Property Name="InternalRealEstateKey" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="RE-Schlüssel"
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts"/><Property Name="InternalFinanceKey" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Immobilienschlüss."
+					sap:quickinfo="Interner Schlüssel des Immobilienobjekts (FI)"/><Property Name="SettlementUnitDescription" Type="Edm.String" MaxLength="60" sap:label="AE-Bezeichnung"
+					sap:quickinfo="Bezeichnung der Abrechnungseinheit"/><Property Name="SettlementUnitType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="AE Typ"
+					sap:quickinfo="Typ der Abrechnungseinheit"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Berechtigungsgruppe"/><Property Name="Responsible" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Verantwortlicher"/><NavigationProperty Name="to_BusinessEntity" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_8F44008D0503DB5D5E8B9A1C89E2C395"
+					FromRole="FromRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395" ToRole="ToRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"/><NavigationProperty Name="to_CompanyCode" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_81B394F3189550C036657222A39763D5"
+					FromRole="FromRole_assoc_81B394F3189550C036657222A39763D5" ToRole="ToRole_assoc_81B394F3189550C036657222A39763D5"/><NavigationProperty Name="to_ServiceChargeKey" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_3D7B3B826621AB1A2149E0602485A282"
+					FromRole="FromRole_assoc_3D7B3B826621AB1A2149E0602485A282" ToRole="ToRole_assoc_3D7B3B826621AB1A2149E0602485A282"/></EntityType>
+			<EntityType Name="xPROHANxIB_TenancyLawType" sap:label="Tenancy Law (tiv03)" sap:content-version="1">
+				<Key><PropertyRef Name="TenancyLaw"/></Key><Property Name="TenancyLaw" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="UpperCase" sap:text="TenancyLaw_Text"
+					sap:label="Mietrecht"/><Property Name="TenancyLaw_Text" Type="Edm.String" MaxLength="50" sap:label="Bezeichn.Mietrecht" sap:quickinfo="Langtext Mietrecht"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="xPROHANxIB_TransportLinkType" sap:label="Transport Connections (tiv44)" sap:content-version="1">
+				<Key><PropertyRef Name="TransportConnection"/></Key><Property Name="TransportConnection" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase"
+					sap:text="TransportConnection_Text" sap:label="Verkehrsanbindung" sap:quickinfo="Verkehrsanbindung der WE"/><Property Name="TransportConnection_Text" Type="Edm.String" MaxLength="50" sap:label="Verkehrsanbindung" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="xPROHANxIP_NKPU_CheckType_VHType" sap:label="Check Type" sap:content-version="1">
+				<Key><PropertyRef Name="CheckType"/></Key><Property Name="CheckType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CheckType_Text"
+					sap:label="Prüfungsart" sap:quickinfo="Werte für Domänen: Einzelwert/untere Grenze"/><Property Name="CheckType_Text" Type="Edm.String" MaxLength="60" sap:label="Kurzbeschreibung" sap:quickinfo="Kurztext zu Festwerten"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="xPROHANxIP_NKPU_Status_VHType" sap:label="Status" sap:content-version="1">
+				<Key><PropertyRef Name="Status"/></Key><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="Status_Text"
+					sap:label="Status" sap:quickinfo="Werte für Domänen: Einzelwert/untere Grenze"/><Property Name="Status_Text" Type="Edm.String" MaxLength="60" sap:label="Kurzbeschreibung" sap:quickinfo="Kurztext zu Festwerten"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_AddressType" sap:label="Adresse" sap:content-version="1">
+				<Key><PropertyRef Name="AddressID"/></Key><Property Name="AddressID" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Adressnummer"/><Property Name="CareOfName" Type="Edm.String" MaxLength="40" sap:label="c/o" sap:quickinfo="c/o-Name"/><Property Name="AdditionalStreetSuffixName" Type="Edm.String" MaxLength="40" sap:label="Straße 5"/><Property Name="CorrespondenceLanguage" Type="Edm.String" MaxLength="2" sap:label="Sprachenschlüssel"/><Property Name="PrfrdCommMediumType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Kommunikationsart"
+					sap:quickinfo="Kommunikationsart (Schlüssel) (Business Address Services)"/><Property Name="POBox" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postfach"/><Property Name="POBoxIsWithoutNumber" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Postfach ohne Nr."
+					sap:quickinfo="Kennzeichen: Postfachangabe ohne Nummer"/><Property Name="POBoxPostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="PLZ Postfach"
+					sap:quickinfo="Postleitzahl des Postfachs"/><Property Name="POBoxLobbyName" Type="Edm.String" MaxLength="40" sap:label="Postfachstation" sap:quickinfo="Postfachstation (PO Box Lobby)"/><Property Name="POBoxDeviatingCityName" Type="Edm.String" MaxLength="40" sap:label="Postfach-Ort" sap:quickinfo="Ort des Postfachs"/><Property Name="POBoxDeviatingRegion" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region zum Postfach"
+					sap:quickinfo="Region zum Postfach (Bundesstaat, Bundesland, Provinz, ...)"/><Property Name="POBoxDeviatingCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Land zum Postfach"/><Property Name="DeliveryServiceTypeCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Zustelldienstart"
+					sap:quickinfo="Art des Zustelldienstes"/><Property Name="DeliveryServiceNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Zustelldienstnummer"
+					sap:quickinfo="Nummer des Zustelldienstes"/><Property Name="AddressTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Zeitzone"
+					sap:quickinfo="Zeitzone der Adresse"/><Property Name="FullName" Type="Edm.String" MaxLength="80" sap:label="Vollständiger Name"
+					sap:quickinfo="Vollst. Name eines Beteiligten (GP, OrgEinheit, DokAdresse)"/><Property Name="CityName" Type="Edm.String" MaxLength="40" sap:label="Ort"/><Property Name="District" Type="Edm.String" MaxLength="40" sap:label="Ortsteil"/><Property Name="CityCode" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Ortsnummer"
+					sap:quickinfo="Codierung des Orts für Orts- und Straßendatei"/><Property Name="HomeCityName" Type="Edm.String" MaxLength="40" sap:label="Abw. Wohnort"
+					sap:quickinfo="Wohnort (abweichend vom postalischen Ort)"/><Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postleitzahl"
+					sap:quickinfo="Postleitzahl des Orts"/><Property Name="CompanyPostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Firmenpostleitzahl"
+					sap:quickinfo="Postleitzahl der Firma (bei Großkunden)"/><Property Name="StreetName" Type="Edm.String" MaxLength="60" sap:label="Straße"/><Property Name="StreetPrefixName" Type="Edm.String" MaxLength="40" sap:label="Straße 2"/><Property Name="AdditionalStreetPrefixName" Type="Edm.String" MaxLength="40" sap:label="Straße 3"/><Property Name="StreetSuffixName" Type="Edm.String" MaxLength="40" sap:label="Straße 4"/><Property Name="HouseNumber" Type="Edm.String" MaxLength="10" sap:label="Hausnummer"/><Property Name="HouseNumberSupplementText" Type="Edm.String" MaxLength="10" sap:label="Zusatz" sap:quickinfo="Ergänzung zur Hausnummer"/><Property Name="Building" Type="Edm.String" MaxLength="20" sap:label="Gebäudekürzel" sap:quickinfo="Gebäude (Nummer oder Kürzel)"/><Property Name="Floor" Type="Edm.String" MaxLength="10" sap:label="Stockwerk" sap:quickinfo="Stockwerk im Gebäude"/><Property Name="RoomNumber" Type="Edm.String" MaxLength="10" sap:label="Raumnummer"
+					sap:quickinfo="Nummer einer Wohnung, eines Appartements oder eines Raumes"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Länderschlüssel"/><Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region"
+					sap:quickinfo="Region (Bundesstaat, Bundesland, Provinz, Grafschaft)"/><Property Name="County" Type="Edm.String" MaxLength="40" sap:label="Bezirk" sap:quickinfo="Bezirk (US: County)"/><Property Name="CountyCode" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Kreiscode"
+					sap:quickinfo="Kreiscode für Kreis"/><Property Name="FormOfAddress" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Anrede"
+					sap:quickinfo="Anredeschlüssel"/><Property Name="BusinessPartnerName1" Type="Edm.String" MaxLength="40" sap:label="Name" sap:quickinfo="Name 1"/><Property Name="BusinessPartnerName2" Type="Edm.String" MaxLength="40" sap:label="Name 2"/><Property Name="Nation" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Adressversion"
+					sap:quickinfo="Versionskennzeichen für internationale Adressen"/><Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Telefon"
+					sap:quickinfo="Erste Telefon-Nr.: Vorwahl + Anschluß"/><Property Name="FaxNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Fax"
+					sap:quickinfo="Erste Fax-Nr.: Vorwahl + Anschluß"/><Property Name="SearchTerm1" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Suchbegriff 1"/><Property Name="SearchTerm2" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Suchbegriff 2"/><Property Name="StreetSearch" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Straße"
+					sap:quickinfo="Straßenname in Großbuchstaben für Suchhilfe"/><Property Name="CitySearch" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Ort"
+					sap:quickinfo="Ortsname in Großbuchstaben für Suchhilfe"/><Property Name="BusinessPartnerName3" Type="Edm.String" MaxLength="40" sap:label="Name 3"/><Property Name="BusinessPartnerName4" Type="Edm.String" MaxLength="40" sap:label="Name 4"/><Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Steuerstandort"/><Property Name="TransportZone" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Transportzone"
+					sap:quickinfo="Transportzone, in die bzw. aus der geliefert wird"/><Property Name="Person" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Personennummer"/></EntityType>
+			<EntityType Name="I_CompanyCodeType" sap:label="Buchungskreis" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName"
+					sap:label="Buchungskreis"/><Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Name der Firma"
+					sap:quickinfo="Buchungskreis- oder Firmen-Bezeichnung"/><Property Name="CityName" Type="Edm.String" MaxLength="25" sap:label="Ort"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="to_Country/Country_Text"
+					sap:label="Länderschlüssel" sap:value-list="standard"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:text="to_Currency/Currency_Text" sap:label="Währung"
+					sap:quickinfo="Währungsschlüssel" sap:value-list="standard" sap:semantics="currency-code"/><Property Name="Language" Type="Edm.String" MaxLength="2" sap:text="to_Language/Language_Text" sap:label="Sprachenschlüssel"
+					sap:value-list="standard"/><Property Name="ChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Kontenplan"/><Property Name="FiscalYearVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase"
+					sap:text="to_FiscalYearVariant/FiscalYearVariant_Text" sap:label="GeschJahresvariante" sap:quickinfo="Geschäftsjahresvariante"
+					sap:value-list="standard"/><Property Name="Company" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Gesellschaft"/><Property Name="CreditControlArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="CreditControlArea_Text"
+					sap:label="Kreditkontr.Bereich" sap:quickinfo="Kreditkontrollbereich" sap:value-list="standard"/><Property Name="CreditControlArea_Text" Type="Edm.String" MaxLength="35" sap:label="Bezeichnung"
+					sap:quickinfo="Bezeichnung des Kredit-Kontrollbereichs" sap:creatable="false" sap:updatable="false"/><Property Name="CountryChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Landeskontenplan"
+					sap:quickinfo="Kontenplan nach Landesrecht"/><Property Name="FinancialManagementArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Finanzkreis"/><Property Name="AddressID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Adresse" sap:value-list="standard"/><Property Name="TaxableEntity" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Umsatzsteuerkreis"/><Property Name="VATRegistration" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Umsatzsteuer-Id.Nr"
+					sap:quickinfo="Umsatzsteuer-Identifikationsnummer"/><Property Name="ExtendedWhldgTaxIsActive" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Erweit.Quell.Steuer"
+					sap:quickinfo="Kennzeichen: erweiterte Quellensteuerabwicklung aktiv"/><Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ControllingArea_Text"
+					sap:label="Kostenrechnungskreis" sap:value-list="standard"/><Property Name="ControllingArea_Text" Type="Edm.String" MaxLength="25" sap:label="Name des Kostenrechnungskreises" sap:creatable="false"
+					sap:updatable="false"/><Property Name="FieldStatusVariant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="to_FieldStatusVariant/FieldStatusVariant_Text" sap:label="Feldstatusvariante" sap:value-list="standard"/><Property Name="NonTaxableTransactionTaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Kennz.Ausg.St."
+					sap:quickinfo="Steuerkennzeichen nicht steuerbarer Vorgang Ausgangssteuer"/><Property Name="DocDateIsUsedForTaxDetn" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Steuererm. mit Belegdatum"
+					sap:quickinfo="Kennzeichen: Belegdatum als Basis für Steuerfindung"/><Property Name="TaxRptgDateIsActive" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Steuerdatum"
+					sap:quickinfo="Steuermeldedatum in Belegen aktiv"/><NavigationProperty Name="to_Address" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_7B700245FD6FF2555A237CF798415E91"
+					FromRole="FromRole_assoc_7B700245FD6FF2555A237CF798415E91" ToRole="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"/><NavigationProperty Name="to_Country" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"
+					FromRole="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B" ToRole="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/><NavigationProperty Name="to_Currency" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"
+					FromRole="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1" ToRole="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/><NavigationProperty Name="to_FieldStatusVariant" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_3B874FB44DA3983736B16F212EB774FB"
+					FromRole="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB" ToRole="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"/><NavigationProperty Name="to_FiscalYearVariant" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_EB26AE0D6C991652829AA26C5CF177EE"
+					FromRole="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE" ToRole="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/><NavigationProperty Name="to_Language" Relationship="xPROHANxCB_NKPU_PL_CC_CDS.assoc_0D98BDD738EE6509265AACBB8FF7D168"
+					FromRole="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168" ToRole="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/></EntityType>
+			<EntityType Name="I_ControllingAreaStdVHType" sap:label="Kostenrechnungskreis" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="ControllingArea"/></Key><Property Name="ControllingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="ControllingAreaName" sap:label="Kostenrechnungskreis"/><Property Name="ControllingAreaName" Type="Edm.String" MaxLength="25" sap:label="Name des Kostenrechnungskreises"/></EntityType>
+			<EntityType Name="I_CountryType" sap:label="Land" sap:content-version="1">
+				<Key><PropertyRef Name="Country"/></Key><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Country_Text"
+					sap:label="Länderschlüssel"/><Property Name="Country_Text" Type="Edm.String" MaxLength="50" sap:label="Bezeichnung lang"
+					sap:quickinfo="Bezeichnung des Landes (max. 50 Stellen)" sap:creatable="false" sap:updatable="false"/><Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO-Code 3-stlg"
+					sap:quickinfo="ISO-Code des Landes 3stellig"/><Property Name="CountryThreeDigitISOCode" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="ISO-Code num.3"
+					sap:quickinfo="ISO-Code des Landes numerisch 3stellig"/><Property Name="CountryCurrency" Type="Edm.String" MaxLength="5" sap:label="Landeswährung" sap:semantics="currency-code"/><Property Name="IndexBasedCurrency" Type="Edm.String" MaxLength="5" sap:label="Indexwährung"
+					sap:quickinfo="Währungsschlüssel der Indexwährung" sap:semantics="currency-code"/><Property Name="HardCurrency" Type="Edm.String" MaxLength="5" sap:label="Hartwährung" sap:quickinfo="Währungsschlüssel der Hartwährung"
+					sap:semantics="currency-code"/><Property Name="TaxCalculationProcedure" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Schema"
+					sap:quickinfo="Schema (Preisfindung, Nachrichten, Kontenfindung, ...)"/><Property Name="CountryAlternativeCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternativschl."
+					sap:quickinfo="Alternativländerschlüssel"/></EntityType>
+			<EntityType Name="I_CreditControlAreaStdVHType" sap:label="Kreditkontrollbereich" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CreditControlArea"/></Key><Property Name="CreditControlArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="CreditControlArea_Text" sap:label="KreditkontrBereich" sap:quickinfo="Kreditkontrollbereich"/><Property Name="CreditControlArea_Text" Type="Edm.String" MaxLength="35" sap:label="Bezeichnung"
+					sap:quickinfo="Bezeichnung des Kredit-Kontrollbereichs" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_CurrencyType" sap:label="Währung" sap:content-version="1">
+				<Key><PropertyRef Name="Currency"/></Key><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Currency_Text" sap:label="Währung"
+					sap:quickinfo="Währungsschlüssel" sap:semantics="currency-code"/><Property Name="Currency_Text" Type="Edm.String" MaxLength="40" sap:label="Langtext" sap:creatable="false" sap:updatable="false"/><Property Name="Decimals" Type="Edm.Byte" sap:label="Dezimalen" sap:quickinfo="Anzahl Dezimalstellen"/><Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Iso-Code"
+					sap:quickinfo="Iso-Code Währung"/><Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternativer Schlüssel"
+					sap:quickinfo="Alternativschlüssel fuer Währungen"/><Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="primär"
+					sap:quickinfo="primärer SAP-Währungscode zum ISO-Code"/></EntityType>
+			<EntityType Name="I_FieldStatusVariantType" sap:label="Feldstatusvariante" sap:content-version="1">
+				<Key><PropertyRef Name="FieldStatusVariant"/></Key><Property Name="FieldStatusVariant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="FieldStatusVariant_Text" sap:label="Feldstatusvariante"/><Property Name="FieldStatusVariant_Text" Type="Edm.String" MaxLength="25" sap:label="Bez. Feldstatusvar."
+					sap:quickinfo="Bezeichnung einer Feldstatusvariante" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_FiscalYearVariantType" sap:label="Geschäftsjahresvariante" sap:content-version="1">
+				<Key><PropertyRef Name="FiscalYearVariant"/></Key><Property Name="FiscalYearVariant" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase"
+					sap:text="FiscalYearVariant_Text" sap:label="GeschJahresvariante" sap:quickinfo="Geschäftsjahresvariante"/><Property Name="FiscalYearVariant_Text" Type="Edm.String" MaxLength="30" sap:label="Beschreibung"
+					sap:quickinfo="Beschreibung der Geschäftsjahres-Variante" sap:creatable="false" sap:updatable="false"/><Property Name="FiscalPeriodIsEqualMonth" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="GeschPer. gl. Monat"
+					sap:quickinfo="Kennzeichen: Geschäftsperiode ist gleich Kalendermonat"/><Property Name="IsYearDependent" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Jahresabhängig"
+					sap:quickinfo="Kennzeichen: Geschäftsjahres-Variante jahresabhängig ?"/><Property Name="PostingPeriodsNumberVal" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Buchungsper."
+					sap:quickinfo="Anzahl Buchungsperioden"/><Property Name="NumberOfSpecialPeriods" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Anz.Sonderperioden"
+					sap:quickinfo="Anzahl Sonderperioden"/></EntityType>
+			<EntityType Name="I_LanguageType" sap:label="Sprache" sap:content-version="1">
+				<Key><PropertyRef Name="Language"/></Key><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Language_Text" sap:label="Sprachenschlüssel"/><Property Name="Language_Text" Type="Edm.String" MaxLength="16" sap:label="Bezeichnung" sap:quickinfo="Bezeichnung der Sprache"
+					sap:creatable="false" sap:updatable="false"/><Property Name="LanguageISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Sprache (ISO 639)"
+					sap:quickinfo="2-stelliger SAP Language Code"/></EntityType>
+			<EntityType Name="I_UserType" sap:label="Benutzer" sap:content-version="1">
+				<Key><PropertyRef Name="UserID"/></Key><Property Name="UserID" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Benutzer-ID"/><Property Name="UserDescription" Type="Edm.String" MaxLength="80" sap:label="Beschreibung" sap:quickinfo="Benutzerbeschreibung"/><Property Name="IsTechnicalUser" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase"/></EntityType>
+			<Association Name="assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ServiceChargeKeyType" Multiplicity="1"
+				Role="FromRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_LanguageType" Multiplicity="0..1" Role="ToRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"><PropertyRef Name="Language"/></Principal>
+					<Dependent Role="FromRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"><PropertyRef Name="Language"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_8F44008D0503DB5D5E8B9A1C89E2C395" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType" Multiplicity="1" Role="FromRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="0..1" Role="ToRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_81B394F3189550C036657222A39763D5" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType" Multiplicity="1" Role="FromRole_assoc_81B394F3189550C036657222A39763D5"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="0..1" Role="ToRole_assoc_81B394F3189550C036657222A39763D5"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_81B394F3189550C036657222A39763D5"><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_81B394F3189550C036657222A39763D5"><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_3D7B3B826621AB1A2149E0602485A282" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType" Multiplicity="1" Role="FromRole_assoc_3D7B3B826621AB1A2149E0602485A282"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ServiceChargeKeyType" Multiplicity="0..1"
+				Role="ToRole_assoc_3D7B3B826621AB1A2149E0602485A282"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_3D7B3B826621AB1A2149E0602485A282"><PropertyRef Name="ServiceChargeKey"/></Principal>
+					<Dependent Role="FromRole_assoc_3D7B3B826621AB1A2149E0602485A282"><PropertyRef Name="ServiceChargeKey"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_4AFED6ABCDC488FBB3737837210B0F8B" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" Multiplicity="1" Role="FromRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIP_NKPU_CheckType_VHType" Multiplicity="0..1"
+				Role="ToRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"><PropertyRef Name="CheckType"/></Principal>
+					<Dependent Role="FromRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"><PropertyRef Name="KeyCheckType"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_AED71401AC7E0183E42B44FA26D617EF" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" Multiplicity="1" Role="FromRole_assoc_AED71401AC7E0183E42B44FA26D617EF"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="0..1" Role="ToRole_assoc_AED71401AC7E0183E42B44FA26D617EF"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_AED71401AC7E0183E42B44FA26D617EF"><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_AED71401AC7E0183E42B44FA26D617EF"><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_5EC8B70F780A5D7C22F3DD544B4CB00D" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" Multiplicity="1" Role="FromRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType" Multiplicity="0..1" Role="ToRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"><PropertyRef Name="ServiceChargeKey"/><PropertyRef Name="SettlementUnit"/><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"><PropertyRef Name="ServiceChargeKey"/><PropertyRef Name="SettlementUnit"/><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_DF12EFE2018DCB3B835A31EC872BA2C9" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" Multiplicity="1" Role="FromRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_NKPU_SettlPer_VHType" Multiplicity="0..1"
+				Role="ToRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"><PropertyRef Name="SettlPer"/></Principal>
+					<Dependent Role="FromRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"><PropertyRef Name="KeySettlPer"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_D1DAECB5BA327BF376C10FE39AAB1F0E" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" Multiplicity="1" Role="FromRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIP_NKPU_Status_VHType" Multiplicity="0..1" Role="ToRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"><PropertyRef Name="Status"/></Principal>
+					<Dependent Role="FromRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"><PropertyRef Name="Status"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_7F344E48380FAA9A2218EB9E150AABE8" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" Multiplicity="1" Role="FromRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="0..1" Role="ToRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_9BFD7337FDF28A84856C29D2B6B67F0B" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="1" Role="FromRole_assoc_9BFD7337FDF28A84856C29D2B6B67F0B"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BuildingType" Multiplicity="0..1" Role="ToRole_assoc_9BFD7337FDF28A84856C29D2B6B67F0B"/></Association>
+			<Association Name="assoc_8A4D747053CCC1BCD76FFA149F3DB303" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="1" Role="FromRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="0..1" Role="ToRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"><PropertyRef Name="CompanyCode"/><PropertyRef Name="BusinessEntity"/></Principal>
+					<Dependent Role="FromRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"><PropertyRef Name="CompanyCode"/><PropertyRef Name="BusinessEntity"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_8A4A33BBCB367A063A657054DD84F2E2" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="1" Role="FromRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="0..1" Role="ToRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_81C62AB2148DE4E54C80D8F48DEA7C15" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="1" Role="FromRole_assoc_81C62AB2148DE4E54C80D8F48DEA7C15"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_PropertyType" Multiplicity="0..1" Role="ToRole_assoc_81C62AB2148DE4E54C80D8F48DEA7C15"/></Association>
+			<Association Name="assoc_9254906D346A011BEF560CBE13CEE7FF" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="1" Role="FromRole_assoc_9254906D346A011BEF560CBE13CEE7FF"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_RentalContractType" Multiplicity="0..1" Role="ToRole_assoc_9254906D346A011BEF560CBE13CEE7FF"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_9254906D346A011BEF560CBE13CEE7FF"><PropertyRef Name="RentalContract"/><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_9254906D346A011BEF560CBE13CEE7FF"><PropertyRef Name="RentalContract"/><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_1ACA6AD4B1634C477B6AA0FAAB581590" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="1" Role="FromRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_RentalObjectType" Multiplicity="0..1" Role="ToRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"><PropertyRef Name="RentalObject"/><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"><PropertyRef Name="RentalObject"/><PropertyRef Name="BusinessEntity"/><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_D4A4A5995C08D8D736D6E0D53702A642" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_UserType" Multiplicity="0..1" Role="ToRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"><PropertyRef Name="UserID"/></Principal>
+					<Dependent Role="FromRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"><PropertyRef Name="LastChangeByUser"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_624DC7E5E35042C6DB1CBD8157EC8DE8" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="0..1" Role="ToRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_9B12134DCA35C7B92905F1389B87D070" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_9B12134DCA35C7B92905F1389B87D070"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_UserType" Multiplicity="0..1" Role="ToRole_assoc_9B12134DCA35C7B92905F1389B87D070"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_9B12134DCA35C7B92905F1389B87D070"><PropertyRef Name="UserID"/></Principal>
+					<Dependent Role="FromRole_assoc_9B12134DCA35C7B92905F1389B87D070"><PropertyRef Name="CreatedByUser"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_88A93473615D4728903766B55BC1C938" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_88A93473615D4728903766B55BC1C938"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_88A93473615D4728903766B55BC1C938"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_88A93473615D4728903766B55BC1C938"><PropertyRef Name="Currency"/></Principal>
+					<Dependent Role="FromRole_assoc_88A93473615D4728903766B55BC1C938"><PropertyRef Name="Currency"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_9E339CA4B35ACBB549730A79E61CF00B" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_DistrictSiteType" Multiplicity="0..1" Role="ToRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"><PropertyRef Name="DistrictLocation"/></Principal>
+					<Dependent Role="FromRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"><PropertyRef Name="DistrictLocation"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_4187EED25E3BD22C530CD4125A42FEFE" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ListOfRentsType" Multiplicity="0..1" Role="ToRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"><PropertyRef Name="ListOfRents"/></Principal>
+					<Dependent Role="FromRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"><PropertyRef Name="ListOfRents"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_A82B8A43216ED709BB12B7C345C16CDE" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_LocationNumberType" Multiplicity="0..1" Role="ToRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"><PropertyRef Name="LocationNumber"/></Principal>
+					<Dependent Role="FromRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"><PropertyRef Name="LocationNumber"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_918FE721646A483E73601B7C2AF61427" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_918FE721646A483E73601B7C2AF61427"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_MaintenanceDistrictType" Multiplicity="0..1"
+				Role="ToRole_assoc_918FE721646A483E73601B7C2AF61427"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_918FE721646A483E73601B7C2AF61427"><PropertyRef Name="MaintenanceDistrict"/></Principal>
+					<Dependent Role="FromRole_assoc_918FE721646A483E73601B7C2AF61427"><PropertyRef Name="MaintenanceDistrict"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_9A1BE9B7B04712D0BCBE61325E7F332F" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" Multiplicity="0..1" Role="ToRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"><PropertyRef Name="ObjectNumber"/></Principal>
+					<Dependent Role="FromRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"><PropertyRef Name="ObjectNumber"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_C650C427538073D7A77AFAC309A0EB8B" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_C650C427538073D7A77AFAC309A0EB8B"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_RegionalLocationType" Multiplicity="0..1"
+				Role="ToRole_assoc_C650C427538073D7A77AFAC309A0EB8B"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_C650C427538073D7A77AFAC309A0EB8B"><PropertyRef Name="RegionalLocation"/></Principal>
+					<Dependent Role="FromRole_assoc_C650C427538073D7A77AFAC309A0EB8B"><PropertyRef Name="RegionalLocation"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_B52E6401D48D3CE4349144BF16F63208" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_B52E6401D48D3CE4349144BF16F63208"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_TenancyLawType" Multiplicity="0..1" Role="ToRole_assoc_B52E6401D48D3CE4349144BF16F63208"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_B52E6401D48D3CE4349144BF16F63208"><PropertyRef Name="TenancyLaw"/></Principal>
+					<Dependent Role="FromRole_assoc_B52E6401D48D3CE4349144BF16F63208"><PropertyRef Name="TenancyLaw"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_13778D087BDFCF4D5B21B20826A87E8B" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" Multiplicity="1" Role="FromRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_TransportLinkType" Multiplicity="0..1" Role="ToRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"><PropertyRef Name="TransportConnection"/></Principal>
+					<Dependent Role="FromRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"><PropertyRef Name="TransportConnection"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_7B700245FD6FF2555A237CF798415E91" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_7B700245FD6FF2555A237CF798415E91"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_AddressType" Multiplicity="0..1" Role="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"><PropertyRef Name="AddressID"/></Principal>
+					<Dependent Role="FromRole_assoc_7B700245FD6FF2555A237CF798415E91"><PropertyRef Name="AddressID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CountryType" Multiplicity="0..1" Role="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"><PropertyRef Name="Country"/></Principal>
+					<Dependent Role="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"><PropertyRef Name="Country"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"><PropertyRef Name="Currency"/></Principal>
+					<Dependent Role="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"><PropertyRef Name="Currency"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_3B874FB44DA3983736B16F212EB774FB" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_FieldStatusVariantType" Multiplicity="0..1" Role="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"><PropertyRef Name="FieldStatusVariant"/></Principal>
+					<Dependent Role="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB"><PropertyRef Name="FieldStatusVariant"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_EB26AE0D6C991652829AA26C5CF177EE" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_FiscalYearVariantType" Multiplicity="0..1" Role="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"><PropertyRef Name="FiscalYearVariant"/></Principal>
+					<Dependent Role="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"><PropertyRef Name="FiscalYearVariant"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_0D98BDD738EE6509265AACBB8FF7D168" sap:content-version="1"><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/><End Type="xPROHANxCB_NKPU_PL_CC_CDS.I_LanguageType" Multiplicity="0..1" Role="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"><PropertyRef Name="Language"/></Principal>
+					<Dependent Role="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"><PropertyRef Name="Language"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="xPROHANxCB_NKPU_PL_CC_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="xPROHANxCB_NKPU_PL_CC" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xPROHANxIB_Building" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BuildingType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xPROHANxIB_BusinessEntity" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_DistrictSite" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_DistrictSiteType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_ListOfRents" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ListOfRentsType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_LocationNumber" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_LocationNumberType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_MaintenanceDistrict" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_MaintenanceDistrictType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_NKPU_SettlPer_VH" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_NKPU_SettlPer_VHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_ObjectNumber" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_Property" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_PropertyType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_RegionalLocation" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_RegionalLocationType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_RentalContract" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_RentalContractType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xPROHANxIB_RentalObject" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_RentalObjectType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_ServiceChargeKey" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ServiceChargeKeyType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xPROHANxIB_SettlementUnit" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xPROHANxIB_TenancyLaw" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_TenancyLawType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIB_TransportLink" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_TransportLinkType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIP_NKPU_CheckType_VH" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIP_NKPU_CheckType_VHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="xPROHANxIP_NKPU_Status_VH" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIP_NKPU_Status_VHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Address" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_AddressType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="I_CompanyCode" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_ControllingAreaStdVH" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_ControllingAreaStdVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Country" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_CountryType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_CreditControlAreaStdVH" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_CreditControlAreaStdVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_Currency" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_CurrencyType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_FieldStatusVariant" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_FieldStatusVariantType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_FiscalYearVariant" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_FiscalYearVariantType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Language" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_LanguageType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_User" EntityType="xPROHANxCB_NKPU_PL_CC_CDS.I_UserType" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="assoc_3B874FB44DA3983736B16F212EB774FB" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_3B874FB44DA3983736B16F212EB774FB"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB"/><End EntitySet="I_FieldStatusVariant" Role="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"/></AssociationSet>
+				<AssociationSet Name="assoc_1ACA6AD4B1634C477B6AA0FAAB581590" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_1ACA6AD4B1634C477B6AA0FAAB581590"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ObjectNumber" Role="FromRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"/><End EntitySet="xPROHANxIB_RentalObject" Role="ToRole_assoc_1ACA6AD4B1634C477B6AA0FAAB581590"/></AssociationSet>
+				<AssociationSet Name="assoc_0D98BDD738EE6509265AACBB8FF7D168" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_0D98BDD738EE6509265AACBB8FF7D168"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/><End EntitySet="I_Language" Role="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/></AssociationSet>
+				<AssociationSet Name="assoc_9BFD7337FDF28A84856C29D2B6B67F0B" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9BFD7337FDF28A84856C29D2B6B67F0B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ObjectNumber" Role="FromRole_assoc_9BFD7337FDF28A84856C29D2B6B67F0B"/><End EntitySet="xPROHANxIB_Building" Role="ToRole_assoc_9BFD7337FDF28A84856C29D2B6B67F0B"/></AssociationSet>
+				<AssociationSet Name="assoc_8A4D747053CCC1BCD76FFA149F3DB303" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_8A4D747053CCC1BCD76FFA149F3DB303"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ObjectNumber" Role="FromRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"/><End EntitySet="xPROHANxIB_BusinessEntity" Role="ToRole_assoc_8A4D747053CCC1BCD76FFA149F3DB303"/></AssociationSet>
+				<AssociationSet Name="assoc_D1DAECB5BA327BF376C10FE39AAB1F0E" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxCB_NKPU_PL_CC" Role="FromRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"/><End EntitySet="xPROHANxIP_NKPU_Status_VH" Role="ToRole_assoc_D1DAECB5BA327BF376C10FE39AAB1F0E"/></AssociationSet>
+				<AssociationSet Name="assoc_4AFED6ABCDC488FBB3737837210B0F8B" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_4AFED6ABCDC488FBB3737837210B0F8B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxCB_NKPU_PL_CC" Role="FromRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"/><End EntitySet="xPROHANxIP_NKPU_CheckType_VH" Role="ToRole_assoc_4AFED6ABCDC488FBB3737837210B0F8B"/></AssociationSet>
+				<AssociationSet Name="assoc_AED71401AC7E0183E42B44FA26D617EF" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_AED71401AC7E0183E42B44FA26D617EF"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxCB_NKPU_PL_CC" Role="FromRole_assoc_AED71401AC7E0183E42B44FA26D617EF"/><End EntitySet="I_CompanyCode" Role="ToRole_assoc_AED71401AC7E0183E42B44FA26D617EF"/></AssociationSet>
+				<AssociationSet Name="assoc_9254906D346A011BEF560CBE13CEE7FF" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9254906D346A011BEF560CBE13CEE7FF"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ObjectNumber" Role="FromRole_assoc_9254906D346A011BEF560CBE13CEE7FF"/><End EntitySet="xPROHANxIB_RentalContract" Role="ToRole_assoc_9254906D346A011BEF560CBE13CEE7FF"/></AssociationSet>
+				<AssociationSet Name="assoc_918FE721646A483E73601B7C2AF61427" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_918FE721646A483E73601B7C2AF61427"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_918FE721646A483E73601B7C2AF61427"/><End EntitySet="xPROHANxIB_MaintenanceDistrict" Role="ToRole_assoc_918FE721646A483E73601B7C2AF61427"/></AssociationSet>
+				<AssociationSet Name="assoc_9E339CA4B35ACBB549730A79E61CF00B" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9E339CA4B35ACBB549730A79E61CF00B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"/><End EntitySet="xPROHANxIB_DistrictSite" Role="ToRole_assoc_9E339CA4B35ACBB549730A79E61CF00B"/></AssociationSet>
+				<AssociationSet Name="assoc_88A93473615D4728903766B55BC1C938" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_88A93473615D4728903766B55BC1C938"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_88A93473615D4728903766B55BC1C938"/><End EntitySet="I_Currency" Role="ToRole_assoc_88A93473615D4728903766B55BC1C938"/></AssociationSet>
+				<AssociationSet Name="assoc_B52E6401D48D3CE4349144BF16F63208" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_B52E6401D48D3CE4349144BF16F63208"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_B52E6401D48D3CE4349144BF16F63208"/><End EntitySet="xPROHANxIB_TenancyLaw" Role="ToRole_assoc_B52E6401D48D3CE4349144BF16F63208"/></AssociationSet>
+				<AssociationSet Name="assoc_C650C427538073D7A77AFAC309A0EB8B" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_C650C427538073D7A77AFAC309A0EB8B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_C650C427538073D7A77AFAC309A0EB8B"/><End EntitySet="xPROHANxIB_RegionalLocation" Role="ToRole_assoc_C650C427538073D7A77AFAC309A0EB8B"/></AssociationSet>
+				<AssociationSet Name="assoc_13778D087BDFCF4D5B21B20826A87E8B" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_13778D087BDFCF4D5B21B20826A87E8B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"/><End EntitySet="xPROHANxIB_TransportLink" Role="ToRole_assoc_13778D087BDFCF4D5B21B20826A87E8B"/></AssociationSet>
+				<AssociationSet Name="assoc_DF12EFE2018DCB3B835A31EC872BA2C9" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_DF12EFE2018DCB3B835A31EC872BA2C9"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxCB_NKPU_PL_CC" Role="FromRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"/><End EntitySet="xPROHANxIB_NKPU_SettlPer_VH" Role="ToRole_assoc_DF12EFE2018DCB3B835A31EC872BA2C9"/></AssociationSet>
+				<AssociationSet Name="assoc_81B394F3189550C036657222A39763D5" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_81B394F3189550C036657222A39763D5"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_SettlementUnit" Role="FromRole_assoc_81B394F3189550C036657222A39763D5"/><End EntitySet="I_CompanyCode" Role="ToRole_assoc_81B394F3189550C036657222A39763D5"/></AssociationSet>
+				<AssociationSet Name="assoc_D4A4A5995C08D8D736D6E0D53702A642" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_D4A4A5995C08D8D736D6E0D53702A642"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"/><End EntitySet="I_User" Role="ToRole_assoc_D4A4A5995C08D8D736D6E0D53702A642"/></AssociationSet>
+				<AssociationSet Name="assoc_7B700245FD6FF2555A237CF798415E91" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_7B700245FD6FF2555A237CF798415E91"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_7B700245FD6FF2555A237CF798415E91"/><End EntitySet="I_Address" Role="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"/></AssociationSet>
+				<AssociationSet Name="assoc_81C62AB2148DE4E54C80D8F48DEA7C15" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_81C62AB2148DE4E54C80D8F48DEA7C15"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ObjectNumber" Role="FromRole_assoc_81C62AB2148DE4E54C80D8F48DEA7C15"/><End EntitySet="xPROHANxIB_Property" Role="ToRole_assoc_81C62AB2148DE4E54C80D8F48DEA7C15"/></AssociationSet>
+				<AssociationSet Name="assoc_3D7B3B826621AB1A2149E0602485A282" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_3D7B3B826621AB1A2149E0602485A282"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_SettlementUnit" Role="FromRole_assoc_3D7B3B826621AB1A2149E0602485A282"/><End EntitySet="xPROHANxIB_ServiceChargeKey" Role="ToRole_assoc_3D7B3B826621AB1A2149E0602485A282"/></AssociationSet>
+				<AssociationSet Name="assoc_A82B8A43216ED709BB12B7C345C16CDE" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_A82B8A43216ED709BB12B7C345C16CDE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"/><End EntitySet="xPROHANxIB_LocationNumber" Role="ToRole_assoc_A82B8A43216ED709BB12B7C345C16CDE"/></AssociationSet>
+				<AssociationSet Name="assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ServiceChargeKey" Role="FromRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"/><End EntitySet="I_Language" Role="ToRole_assoc_5D2DF7C380C03FE7DFF9C3C933A6BA0E"/></AssociationSet>
+				<AssociationSet Name="assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/><End EntitySet="I_Currency" Role="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/></AssociationSet>
+				<AssociationSet Name="assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/><End EntitySet="I_Country" Role="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/></AssociationSet>
+				<AssociationSet Name="assoc_624DC7E5E35042C6DB1CBD8157EC8DE8" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"/><End EntitySet="I_CompanyCode" Role="ToRole_assoc_624DC7E5E35042C6DB1CBD8157EC8DE8"/></AssociationSet>
+				<AssociationSet Name="assoc_5EC8B70F780A5D7C22F3DD544B4CB00D" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxCB_NKPU_PL_CC" Role="FromRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"/><End EntitySet="xPROHANxIB_SettlementUnit" Role="ToRole_assoc_5EC8B70F780A5D7C22F3DD544B4CB00D"/></AssociationSet>
+				<AssociationSet Name="assoc_EB26AE0D6C991652829AA26C5CF177EE" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_EB26AE0D6C991652829AA26C5CF177EE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/><End EntitySet="I_FiscalYearVariant" Role="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/></AssociationSet>
+				<AssociationSet Name="assoc_4187EED25E3BD22C530CD4125A42FEFE" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_4187EED25E3BD22C530CD4125A42FEFE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"/><End EntitySet="xPROHANxIB_ListOfRents" Role="ToRole_assoc_4187EED25E3BD22C530CD4125A42FEFE"/></AssociationSet>
+				<AssociationSet Name="assoc_8F44008D0503DB5D5E8B9A1C89E2C395" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_8F44008D0503DB5D5E8B9A1C89E2C395"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_SettlementUnit" Role="FromRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"/><End EntitySet="xPROHANxIB_BusinessEntity" Role="ToRole_assoc_8F44008D0503DB5D5E8B9A1C89E2C395"/></AssociationSet>
+				<AssociationSet Name="assoc_8A4A33BBCB367A063A657054DD84F2E2" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_8A4A33BBCB367A063A657054DD84F2E2"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_ObjectNumber" Role="FromRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"/><End EntitySet="I_CompanyCode" Role="ToRole_assoc_8A4A33BBCB367A063A657054DD84F2E2"/></AssociationSet>
+				<AssociationSet Name="assoc_9A1BE9B7B04712D0BCBE61325E7F332F" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9A1BE9B7B04712D0BCBE61325E7F332F"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"/><End EntitySet="xPROHANxIB_ObjectNumber" Role="ToRole_assoc_9A1BE9B7B04712D0BCBE61325E7F332F"/></AssociationSet>
+				<AssociationSet Name="assoc_7F344E48380FAA9A2218EB9E150AABE8" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_7F344E48380FAA9A2218EB9E150AABE8"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxCB_NKPU_PL_CC" Role="FromRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"/><End EntitySet="xPROHANxIB_BusinessEntity" Role="ToRole_assoc_7F344E48380FAA9A2218EB9E150AABE8"/></AssociationSet>
+				<AssociationSet Name="assoc_9B12134DCA35C7B92905F1389B87D070" Association="xPROHANxCB_NKPU_PL_CC_CDS.assoc_9B12134DCA35C7B92905F1389B87D070"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="xPROHANxIB_BusinessEntity" Role="FromRole_assoc_9B12134DCA35C7B92905F1389B87D070"/><End EntitySet="I_User" Role="ToRole_assoc_9B12134DCA35C7B92905F1389B87D070"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/KeyCheckType">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Check Type"/><PropertyValue Property="CollectionPath" String="xPROHANxIP_NKPU_CheckType_VH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="KeyCheckType"/><PropertyValue Property="ValueListProperty" String="CheckType"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CheckType_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/KeySettlPer">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Abrechnungsperiode"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_NKPU_SettlPer_VH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="KeySettlPer"/><PropertyValue Property="ValueListProperty" String="SettlPer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ValidFromText"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ValidToText"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="RangeText"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCode"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/BusinessEntity">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Business Entity (vibdbe)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_BusinessEntity"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BusinessEntityDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/ServiceChargeKey">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Settlement Unit (viscsu)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_SettlementUnit"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="SettlementUnit"/><PropertyValue Property="ValueListProperty" String="SettlementUnit"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ServiceChargeKey"/><PropertyValue Property="ValueListProperty" String="ServiceChargeKey"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SettlementUnitDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/SettlementUnit">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Settlement Unit (viscsu)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_SettlementUnit"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="SettlementUnit"/><PropertyValue Property="ValueListProperty" String="SettlementUnit"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ServiceChargeKey"/><PropertyValue Property="ValueListProperty" String="ServiceChargeKey"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SettlementUnitDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CCType/Status">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="xPROHANxIP_NKPU_Status_VH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/><PropertyValue Property="ValueListProperty" String="Status"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Status_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCode"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/ObjectNumber">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Object Number (vicaintreno)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_ObjectNumber"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ObjectNumber"/><PropertyValue Property="ValueListProperty" String="ObjectNumber"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/MaintenanceDistrict">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Maintenance District (tiv16)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_MaintenanceDistrict"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="MaintenanceDistrict"/><PropertyValue Property="ValueListProperty" String="MaintenanceDistrict"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="MaintenanceDistrictDescription"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="MaintenanceDistrictName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/TransportConnection">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Transport Connections (tiv44)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_TransportLink"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="TransportConnection"/><PropertyValue Property="ValueListProperty" String="TransportConnection"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="TransportConnection_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/RegionalLocation">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Regional Location (tiv35)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_RegionalLocation"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="RegionalLocation"/><PropertyValue Property="ValueListProperty" String="RegionalLocation"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="RegionalLocationDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/LocationNumber">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Location Number (tiv10)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_LocationNumber"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="LocationNumber"/><PropertyValue Property="ValueListProperty" String="LocationNumber"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="LocationNumberDescription"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="LocationNumberName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/DistrictLocation">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="District Location (tiv45)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_DistrictSite"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="DistrictLocation"/><PropertyValue Property="ValueListProperty" String="DistrictLocation"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="DistrictLocation_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/TenancyLaw">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Tenancy Law (tiv03)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_TenancyLaw"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="TenancyLaw"/><PropertyValue Property="ValueListProperty" String="TenancyLaw"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="TenancyLaw_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/ListOfRents">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="ListOfRents (tivajrlra)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_ListOfRents"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ListOfRents"/><PropertyValue Property="ValueListProperty" String="ListOfRents"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ListOfRents_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_BusinessEntityType/Currency">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="I_Currency"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Currency"/><PropertyValue Property="ValueListProperty" String="Currency"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Currency_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCode"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType/BusinessEntity">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Business Entity (vibdbe)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_BusinessEntity"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BusinessEntityDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType/Property">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Property (vibdpr)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_Property"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Property"/><PropertyValue Property="ValueListProperty" String="Property"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PropertyDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType/Building">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Building (vibdbu)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_Building"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Building"/><PropertyValue Property="ValueListProperty" String="Building"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BuildingDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType/RentalObject">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="RentalObject (vibdro)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_RentalObject"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="RentalObject"/><PropertyValue Property="ValueListProperty" String="RentalObject"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="RentalObjectDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ObjectNumberType/RentalContract">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Rental Contract (vicncn)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_RentalContract"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="RentalContract"/><PropertyValue Property="ValueListProperty" String="RentalContract"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ContractDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_ServiceChargeKeyType/Language">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Language"/><PropertyValue Property="CollectionPath" String="I_Language"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Language"/><PropertyValue Property="ValueListProperty" String="Language"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Language_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCode"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType/BusinessEntity">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Business Entity (vibdbe)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_BusinessEntity"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessEntity"/><PropertyValue Property="ValueListProperty" String="BusinessEntity"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BusinessEntityDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxIB_SettlementUnitType/ServiceChargeKey">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Service Charge Key (tiv05)"/><PropertyValue Property="CollectionPath" String="xPROHANxIB_ServiceChargeKey"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ServiceChargeKey"/><PropertyValue Property="ValueListProperty" String="ServiceChargeKey"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ServiceChargeKeyDescription"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/Country">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Country"/><PropertyValue Property="CollectionPath" String="I_Country"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Country"/><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/Currency">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="I_Currency"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Currency"/><PropertyValue Property="ValueListProperty" String="Currency"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Currency_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/Language">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Language"/><PropertyValue Property="CollectionPath" String="I_Language"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Language"/><PropertyValue Property="ValueListProperty" String="Language"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Language_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/FiscalYearVariant">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Fiscal Year Variant"/><PropertyValue Property="CollectionPath" String="I_FiscalYearVariant"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="FiscalYearVariant"/><PropertyValue Property="ValueListProperty" String="FiscalYearVariant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="FiscalYearVariant_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/CreditControlArea">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Credit Control Area"/><PropertyValue Property="CollectionPath" String="I_CreditControlAreaStdVH"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CreditControlArea"/><PropertyValue Property="ValueListProperty" String="CreditControlArea"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/ControllingArea">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Controlling Area"/><PropertyValue Property="CollectionPath" String="I_ControllingAreaStdVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ControllingArea"/><PropertyValue Property="ValueListProperty" String="ControllingArea"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingAreaName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="xPROHANxCB_NKPU_PL_CC_CDS.I_CompanyCodeType/FieldStatusVariant">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Field Status Variant"/><PropertyValue Property="CollectionPath" String="I_FieldStatusVariant"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="FieldStatusVariant"/><PropertyValue Property="ValueListProperty" String="FieldStatusVariant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="FieldStatusVariant_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CC_CDS_Entities/xPROHANxIB_Building">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>BuildingValue</PropertyPath>
+								<PropertyPath>CurrentBuildingValue</PropertyPath>
+								<PropertyPath>StandardValue</PropertyPath>
+								<PropertyPath>InsuranceValue</PropertyPath>
+								<PropertyPath>NumberOfFloors</PropertyPath>
+								<PropertyPath>NumberofBasements</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="xPROHANxCB_NKPU_PL_CC_CDS.xPROHANxCB_NKPU_PL_CC_CDS_Entities/xPROHANxIB_Property">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>MarketValue</PropertyPath>
+								<PropertyPath>PurchasePrice</PropertyPath>
+								<PropertyPath>LandReferenceValue</PropertyPath>
+								<PropertyPath>LandValue</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./prohan/CB_NKPU_PL_CC_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./prohan/CB_NKPU_PL_CC_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

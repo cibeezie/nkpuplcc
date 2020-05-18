@@ -1,0 +1,43 @@
+{
+	"fileName": "id_1589809897943_146_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "PROHAN.prohan_re_nkpu_pl_cc.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "useExportToExcel",
+		"newValue": true
+	},
+	"selector": {
+		"id": "PROHAN.prohan_re_nkpu_pl_cc::sap.suite.ui.generic.template.ListReport.view.ListReport::xPROHANxCB_NKPU_PL_CC--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/PROHAN.prohan_re_nkpu_pl_cc/changes/",
+	"projectId": "PROHAN.prohan_re_nkpu_pl_cc",
+	"creation": "2020-05-18T13:51:55.968Z",
+	"originalLanguage": "DE",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.71.10",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0.0",
+		"from": "1.0.0",
+		"to": "1.0.0"
+	},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}
