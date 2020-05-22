@@ -54,6 +54,12 @@
 					"semanticObject": "ProhanDev_RE_NKPU_PL_CC",
 					"action": "display"
 				}
+			},
+			"outbounds": {
+				"AENavigation": {
+					"semanticObject": "REServiceCharge",
+					"action": "manageSettlementUnit"
+				}
 			}
 		}
 	},
@@ -150,6 +156,20 @@
 					"settings": {
 						"condensedTableLayout": true,
 						"smartVariantManagement": true
+					}
+				},
+				"pages": {
+					"ObjectPage|xPROHANxCB_NKPU_PL_CC": {
+						"entitySet": "xPROHANxCB_NKPU_PL_CC",
+						"component": {
+							"name": "sap.suite.ui.generic.template.ObjectPage"
+						},
+						"navigation": {
+							"display": {
+								"path": "sap.apps.crossNavigation.outbounds",
+								"target": "AENavigation"
+							}
+						}
 					}
 				}
 			}
